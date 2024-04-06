@@ -1,4 +1,13 @@
 import express from 'express';
+import mongoose from 'mongoose';
+
+mongoose.connect(process.env.MONGO)
+.then(() =>{
+    console.log('Mongoose is connected');
+}
+).catch((error) => {
+    console.log(error);
+})
 
 const app= express();
 
