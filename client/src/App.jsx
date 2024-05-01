@@ -4,8 +4,9 @@ import About from './pages/About'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import Dashboard from './pages/Dashboard'
-import Header from './pages/Header'
+import Header from './components/Header'
 import Project from './pages/Project'
+import Footer from './components/Footer'
 
 
 
@@ -22,6 +23,7 @@ export default function App() {
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/project' element={<Project />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
    
   )

@@ -18,7 +18,7 @@ export const signup = async (req, res, next) =>{
     })
     try{
     await newUser.save();
-    res.json({username,email});
+    res.json({username, email});
     
     }catch(error){
         next(error);

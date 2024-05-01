@@ -13,13 +13,13 @@ export default function SignIn() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.username || !formData.email || !formData.password) {
+    if (!formData.username || !formData.password) {
       return setErrorMessage('Please fill out all fields.');
     }
     try {
       setLoading(true);
       setErrorMessage(null);
-      const res = await fetch('http://localhost:3000/api/auth/signup', {
+      const res = await fetch('http://localhost:3000/api/auth/signin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -32,7 +32,7 @@ export default function SignIn() {
       }
       setLoading(false);
       if(res.ok) {
-        navigate('/sign-in');
+        navigate('/');
       }
     } catch (error) {
       setErrorMessage(error.message);
@@ -64,19 +64,12 @@ export default function SignIn() {
             id='username'onChange={handleChange}
             />
           </div>
-          <div>
-            <Label value='your user email'/>
-            <TextInput
-            type='email'
-            placeholder='Email'
-            id='email'onChange={handleChange}
-            />
-          </div>
+         
           <div>
             <Label value='your user password'/>
             <TextInput
             type='password'
-            placeholder='Password'
+            placeholder='*******'
             id='password'
             onChange={handleChange}
             />
@@ -95,9 +88,9 @@ export default function SignIn() {
           </Button>
         </form>
         <div>
-          <span>Have an account? </span>
-          <Link to='/sing-in' className='text-blue-500'>
-          Sign In
+          <span>Dont have an account? </span>
+          <Link to='/sing-up' className='text-blue-500'>
+          Sign Up
           </Link>
         </div>
        {
