@@ -3,7 +3,7 @@ import bcryptjs from 'bcryptjs'
 
 
 export const signup = async (req, res, next) =>{
-    // console.log(req.body);
+     console.log(req.body);
     const {username, password, email} = req.body;
     if(!email|| !username|| !password || email==="" || password==="" || username==="")
     {
@@ -13,14 +13,15 @@ export const signup = async (req, res, next) =>{
     const newUser = new User({
         username,
         password:hashPassword,
-        email
+        email,
 
     })
     try{
     await newUser.save();
-    res.json("signup successful");
+    res.json({username,email});
     
     }catch(error){
         next(error);
     }
 }
+
