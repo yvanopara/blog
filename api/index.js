@@ -5,13 +5,15 @@ import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
 import cors from 'cors';
 
+dotenv.config();
+
 
 
 const app= express();
 
 const port = 3000;
 
- mongoose.connect('mongodb+srv://yvanopara:BMnf15FKWi8B4mKU@cluster0.tnq0hzw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+ mongoose.connect(process.env.MONGO)
 .then(() =>{
     console.log('Mongoose is connected');
 }
