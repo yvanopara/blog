@@ -4,11 +4,14 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import {useDispatch, useSelector} from 'react-redux'
 import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice';
+import Auth from '../components/Auth';
+
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
-  const {loading, error: errorMessage} = useSelector(state => state.user);
+  const {error: errorMessage} = useSelector(state => state.user);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
@@ -85,8 +88,9 @@ export default function SignIn() {
               ) : 'Sign up'
 
             }
-            Sign Up
+           
           </Button>
+          <Auth />
         </form>
         <div>
           <span>Dont have an account? </span>
