@@ -16,7 +16,7 @@ export default function DashSideBar() {
       }
     }, [location.search]);
   return (
-    <Sidebar className='w-full md:56'>
+    <Sidebar className='w-full md:h56'>
         <Sidebar.ItemGroup >
             <Link to='/dashboard?tab=profile'>
             <Sidebar.Item active={tab === 'profile'} icon={HiUser} label={'User'} labelColor='dark'>
