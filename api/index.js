@@ -1,26 +1,25 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import http from 'http';
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
 import cors from 'cors';
 
 dotenv.config();
 
-
-
 const app= express();
 
 const port = 3000;
 
  mongoose.connect(process.env.MONGO)
+
 .then(() =>{
     console.log('Mongoose is connected');
 }
 ).catch((error) => {
     console.log(error);
 })
-
 
 app.use(cors(""));
 
